@@ -1,0 +1,53 @@
+/* All copyright and related or neighbouring rights to this work
+ * have been waived via CC0. To view a copy of this dedication,
+ * visit http://creativecommons.org/publicdomain/zero/1.0/.
+ */
+
+body {
+  font-family: sans-serif;
+}
+
+h1, h2 {
+  text-align: center;
+}
+
+.wrapper {
+  margin: 0 auto;
+  padding-bottom: 1em;
+  max-width: 36em;
+}
+
+#space {
+  padding-top: 5em;
+}
+
+footer {
+  text-align: center;
+}
+
+#github {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+label {
+  display: flex;
+  margin: 0 0 1em 0;
+}
+
+label > p {
+  flex: 2;
+  padding: 0;
+  margin: 0;
+}
+
+label > input {
+  flex: 3;
+  margin: 0 1em;
+}
+
+input[type=submit] {
+  float: right;
+  margin: 0 1em 0 0;
+}
