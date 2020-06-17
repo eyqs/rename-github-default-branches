@@ -12,6 +12,7 @@
   <a href="https://github.com/eyqs/rename-github-default-branches">
     <img id="github" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png">
   </a>
+  <p>Because you should be free to name your default branches whatever you want. Get a <a href="https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line">personal access token here</a>. View the short <a href="./rename.js">JavaScript source code here</a>.</p>
   <form id="form">
     <label>
       <p>Name of old default branch:</p>
@@ -22,17 +23,106 @@
       <input name="new_branch" type="text" required="required" placeholder="main">
     </label>
     <label>
-      <p>GitHub API Token:</p>
+      <p>GitHub personal access token:</p>
       <input name="token" type="text" required="required" placeholder="fbe2e2c7883d61ad193883098c7e93449c260ba9">
     </label>
-    <input type="submit" value="Rename!">
+    <label>
+      <p>Delete old default branches after switching to new default branches?</p>
+      <div>
+        <input name="del" type="checkbox">
+        <input type="submit" value="Start!">
+      </div>
+    </label>
   </form>
-  <h2 id="space">Testimonials</h2>
-  <p><a href="https://github.com/eyqs">@eyqs</a>: Incredible tool. If this didn't already exist, I would have written it myself! Now I can finally change all my GitHub default branch names to "salad".</p>
-  <p><a href="https://github.com/emsal1863">@emsal1863</a>: I was paid $0.10 to give my 2 cents here. This script sucks!!!</p>
-  <p><a href="https://github.com/fb39ca4">@fb39ca4</a>: I can now sleep at night knowing racism has ended.</p>
-  <p><a href="https://github.com/theophilusko">@theophilusko</a>: It took me longer to create a GitHub API token than it would have taken to just change the default branch on my one and only repository manually...</p>
-  <p><a href="https://github.com/ben324">@ben324</a>: I don't even have any repositories at all.</p>
+  <h2 class="space">Frequently Asked Questions</h2>
+  <ul>
+    <li>
+      <p class="question">What's a default branch?</p>
+      <p class="answer">It's the <a href="https://help.github.com/en/github/administering-a-repository/setting-the-default-branch">base branch in a GitHub repository</a>, which by default is <code>master</code>. </p>
+    </li>
+    <li>
+      <p class="question">Why should I use this tool?</p>
+      <p class="answer">Freedom of speech! Express yourself! Confuse innocent noobs!</p>
+    </li>
+    <li>
+      <p class="question">Who would trust this sketchy-looking website?</p>
+      <p class="answer">You can read <a href="./rename.js">the source code</a> and run it yourself, if you're paranoid.</p>
+    </li>
+    <li>
+      <p class="question">Would any changes be irreversible?</p>
+      <p class="answer">Not unless you check the box to delete your old default branches. Usually, you can just run the script again in reverse to undo your changes. Things might get more messy if you already have branches with those names, or if your default branch names are different for each repository, or if many people use your repo as a submodule, or any number of other cases, in which case you should probably try something else.</p>
+    </li>
+    <li>
+      <p class="question">Whose repositories does this affect?</p>
+      <p class="answer">This script only affects repos under your username. It does not affect any repos owned by any organizations, even if you are an owner of that repo, because you should probably consult your collaborators. Of course, you can change the script to affect all repos you own if you wish.</p>
+    </li>
+    <li>
+      <p class="question">Which scopes should I select when creating my token?</p>
+      <p class="answer">You should select <strong>repo</strong> if you want to change both public and private repos, or just <strong>public_repo</strong> if you don't trust that I wouldn't "accidentally" delete all your private repos. Remember to revoke your token afterwards!</p>
+    </li>
+    <li>
+      <p class="question">Where's the progress indicator?</p>
+      <p class="answer">You can <a href="https://webmasters.stackexchange.com/a/77337">open up the JavaScript console</a> to see some output. A list of results for all repositories will show up at the very end, so be patient.</p>
+    </li>
+    <li>
+      <p class="question">Whatever shall I do, in order to switch to my new branch on my local repositories after running this script?</p>
+      <p class="answer">If you're scared of Git, you can do the usual: delete and clone again.</p>
+      <p>If your local branch is behind or even with your remote branch, try:</p>
+      <pre>
+git pull
+git checkout &lt;new_branch&gt;
+git branch -d &lt;old_branch&gt;
+git remote update -p
+      </pre>
+      <p>If your local branch is ahead of your remote branch, try:</p>
+      <pre>
+git checkout -b &lt;new_branch&gt;
+git branch -D &lt;old_branch&gt;
+git push &lt;remote&gt; -u &lt;new_branch&gt;
+git remote update -p
+      </pre>
+      <p>Here's an example of the bash loop that I used:</p>
+      <pre>
+for d in ./*/; do (
+  cd "$d" &&
+  git pull &&
+  git checkout salad &&
+  git branch -d master &&
+  git remote update -p
+) done
+      </pre>
+    </li>
+    <li>
+      <p class="question">Whom should I ask for help in configuring <code>git init</code> to initialize new repositories with a different default branch?</p>
+      <p class="answer">See <a href="https://stackoverflow.com/a/50880622">this StackOverflow answer by nicoo</a> for details.</p>
+    </li>
+    <li>
+      <p class="question">When will you write a script to rename GitLab default branches?</p>
+      <p class="answer">Tomorrow, if this gets over 10 upvotes on Reddit or Hacker News. Otherwise never, because nobody would ever use it, not even myself.</p>
+    </li>
+    <li>
+      <p class="question">Was this script thoroughly checked for bugs?</p>
+      <p class="answer">No. I express no representation or warranties of any kind whatsoever, including without limitation the implied warranties of merchantability, fitness for a particular purpose, all of which I hereby disclaim to the fullest extent permitted by law.</p>
+    </li>
+    <li>
+      <p class="question">Will I encounter issues if I have over 2000 repos?</p>
+      <p class="answer">Yes. You'd hit the <a href="https://developer.github.com/v3/rate_limit/">GitHub API rate limit</a>. Why do you have 2000 repos?</p>
+    </li>
+    <li>
+      <p class="question">Whoever could have "accidentally" deleted all of my repos?</p>
+      <p class="answer">It wasn't me! You can read <a href="./rename.js">the source code</a> to double-check.</p>
+    </li>
+    <li>
+      <p class="question">Were any of these "frequently" asked questions ever asked?</p>
+      <p class="answer">No.</p>
+    </li>
+  </ul>
+  <h2 class="space">Testimonials</h2>
+  <p>@<a href="https://github.com/eyqs">eyqs</a>: Incredible tool. If this didn't already exist, I would have written it myself! Now I can finally change all my GitHub default branch names to <code>salad</code>.</p>
+  <p>@<a href="https://github.com/emsal1863">emsal1863</a>: I was paid $0.10 to give my 2 cents here. This script sucks!!!</p>
+  <p>@<a href="https://github.com/fb39ca4">fb39ca4</a>: I can now sleep at night knowing racism has ended.</p>
+  <p>@<a href="https://github.com/theophilusko">theophilusko</a>: It took me longer to create a GitHub API token than it would have taken to just change the default branch on my one and only repository manually...</p>
+  <p>@<a href="https://github.com/ben324">ben324</a>: I don't even have any repositories at all!</p>
 
 </div>
 <footer role="contentinfo">

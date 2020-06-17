@@ -17,10 +17,6 @@ h1, h2 {
   max-width: 36em;
 }
 
-#space {
-  padding-top: 5em;
-}
-
 footer {
   text-align: center;
 }
@@ -33,21 +29,31 @@ footer {
 
 label {
   display: flex;
-  margin: 0 0 1em 0;
+  margin-bottom: 1em;
 }
 
 label > p {
-  flex: 2;
+  flex: 1;
   padding: 0;
   margin: 0;
 }
 
 label > input {
-  flex: 3;
-  margin: 0 1em;
+  flex: 1;
 }
 
-input[type=submit] {
-  float: right;
-  margin: 0 1em 0 0;
+.space {
+  padding-top: 5em;
+}
+
+p.question {
+  font-weight: bold;
+}
+
+p.question:before {
+  content: "Q: ";
+}
+
+p.answer:before {
+  content: "A: ";
 }
