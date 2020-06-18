@@ -42,19 +42,23 @@
     </li>
     <li>
       <p class="question">Why should I use this tool?</p>
-      <p class="answer">Freedom of speech! Express yourself! Confuse innocent noobs!</p>
+      <p class="answer">Freedom of speech! Defy conventions! Confuse yourself and others!</p>
     </li>
     <li>
       <p class="question">Who would trust this sketchy-looking website?</p>
       <p class="answer">You can read <a href="./rename.js">the source code</a> and run it yourself, if you're paranoid.</p>
     </li>
     <li>
+      <p class="question">Will I encounter issues if branches with the same name already exist, or if there are many external hyperlinks to the <code>master</code> branch, or if many people use my repo as a submodule, or if I have many forks I don't want to touch, or if I have over 1239 repositories, or if I'm using multiple remotes, or if I'm using Netscape Navigator 3.02?</p>
+      <p class="answer">Yes, yes, yes, yes, yes, yes, yes. In any case, <strong>don't use this tool.</strong></p>
+    </li>
+    <li>
       <p class="question">Would any changes be irreversible?</p>
-      <p class="answer">Not unless you check the box to delete your old default branches. Usually, you can just run the script again in reverse to undo your changes. Things might get more messy if you already have branches with those names, or if your default branch names are different for each repository, or if many people use your repo as a submodule, or any number of other cases, in which case you should probably try something else.</p>
+      <p class="answer">Not unless you check the box to delete your old default branches. Usually, you can just run the script again in reverse to undo your changes. Otherwise, if you're not a casual user (see above), this tool isn't for you.</p>
     </li>
     <li>
       <p class="question">Whose repositories does this affect?</p>
-      <p class="answer">This script only affects repos under your username. It does not affect any repos owned by any organizations, even if you are an owner of that repo, because you should probably consult your collaborators. Of course, you can change the script to affect all repos you own if you wish.</p>
+      <p class="answer">This script only affects repos under your username, unfortunately <strong>including all forks</strong>. It does not affect any repos owned by organizations, even if you are an owner of such a repo, because presumably you should probably consult your collaborators first. Of course, you can change the script to affect all repos you own if you wish.</p>
     </li>
     <li>
       <p class="question">Which scopes should I select when creating my token?</p>
@@ -77,7 +81,7 @@ git remote update -p
       <p>If your local branch is ahead of your remote branch, try:</p>
       <pre>
 git checkout -b &lt;new_branch&gt;
-git branch -D &lt;old_branch&gt;
+git branch -d &lt;old_branch&gt;
 git push &lt;remote&gt; -u &lt;new_branch&gt;
 git remote update -p
       </pre>
@@ -105,10 +109,6 @@ for d in ./*/; do (
       <p class="answer">No. I express no representation or warranties of any kind whatsoever, including without limitation the implied warranties of merchantability, fitness for a particular purpose, all of which I hereby disclaim to the fullest extent permitted by law.</p>
     </li>
     <li>
-      <p class="question">Will I encounter issues if I have over 2000 repos?</p>
-      <p class="answer">Yes. You'd hit the <a href="https://developer.github.com/v3/rate_limit/">GitHub API rate limit</a>. Why do you have 2000 repos?</p>
-    </li>
-    <li>
       <p class="question">Whoever could have "accidentally" deleted all of my repos?</p>
       <p class="answer">It wasn't me! You can read <a href="./rename.js">the source code</a> to double-check.</p>
     </li>
@@ -118,12 +118,46 @@ for d in ./*/; do (
     </li>
   </ul>
   <h2 class="space">Testimonials</h2>
-  <p>@<a href="https://github.com/eyqs">eyqs</a>: Incredible tool. If this didn't already exist, I would have written it myself! Now I can finally change all my GitHub default branch names to <code>salad</code>.</p>
-  <p>@<a href="https://github.com/emsal1863">emsal1863</a>: I was paid $0.10 to give my 2 cents here. This script sucks!!!</p>
-  <p>@<a href="https://github.com/fb39ca4">fb39ca4</a>: I can now sleep at night knowing racism has ended.</p>
-  <p>@<a href="https://github.com/theophilusko">theophilusko</a>: It took me longer to create a GitHub API token than it would have taken to just change the default branch on my one and only repository manually...</p>
-  <p>@<a href="https://github.com/ben324">ben324</a>: I don't even have any repositories at all!</p>
-
+  <p>@<a href="https://github.com/eyqs">eyqs</a>: <q>Incredible tool. If this didn't already exist, I would have written it myself!</q></p>
+  <p>@<a href="https://github.com/oirectine">oirectine</a>: <q>i haven’t used it but i’m sure it probably works</q></p>
+  <p>@<a href="https://github.com/danield128">danield128</a>: <q>Rename is so easy to use! We plan to replace git with rename as our exclusive version control system. Thanks @<a href="https://github.com/eyqs">eyqs</a>!</q></p>
+  <p>@<a href="https://github.com/emsal1863">emsal1863</a>: <q>I was paid $0.10 to give my 2 cents here. This script sucks!!!</q></p>
+  <p>@<a href="https://github.com/schemetrical">schemetrical</a>: <q>Never used tool</q></p>
+  <p>@<a href="https://github.com/mo-morgan">mo-morgan</a>: <q>this tool will definitely advance humanity 10/10</q></p>
+  <p>@<a href="https://github.com/fb39ca4">fb39ca4</a>: <q>I can now sleep at night knowing racism has ended.</q></p>
+  <p>@<a href="https://github.com/ajshu">ajshu</a>: <q>I haven’t used Git in ages but it seems legit.</q></p>
+  <p>@<a href="https://github.com/jzaralim">jzaralim</a>: <q>none of the people in the testimonials even used the tool...</q></p>
+  <p>@<a href="https://github.com/priyanshmalik">priyanshmalik</a>: <q>this sounds like a lot of effort when I only have one repository</q></p>
+  <p>@<a href="https://github.com/ben324">ben324</a>: <q>YOOOOooOOOOoOoOo i don't even have any repositories!!!!</q></p>
+  <p>@<a href="https://github.com/thoushallbeagithubaccount">thoushallbeagithubaccount</a>: <q>I needed some dope and the creator of this tool gave me a few quarters to write a few words here. Cheers boys</q></p>
+  <p>@<a href="https://github.com/zcliang97">zcliang97</a>: <q>It’s apps like these that make me think the future is here. <a href="https://twitter.com/search?q=%23GoodThingsHappenIn2020Too">#GoodThingsHappenIn2020Too</a></q></p>
+  <p>@<a href="https://github.com/s-zheng">s-zheng</a>: <q>this cured my cancer</q></p>
+  <p>@<a href="https://github.com/rebeccayelin">rebeccayelin</a>: <q>...</q></p>
+  <p>@<a href="https://github.com/estherlin">estherlin</a>: <q>this is so much better than plain old <code>git branch -m master salad</code>.</q></p>
+  <p>@<a href="https://github.com/gzgreg">gzgreg</a>: <q>pretty sure this got one of my coworkers fired yesterday when all the links to <code>tree/master</code> broke, nice job</q></p>
+  <p>@<a href="https://github.com/vhui">vhui</a>: <q>Cool, worked perfectly for what I needed: renaming my <code>master</code> branches to <code>master</code>.</q></p>
+  <p>@<a href="https://github.com/ShuHaoLi">ShuHaoLi</a>: <q>masterful.</q></p>
+  <p>@<a href="https://github.com/mkduan">mkduan</a>: <q>I always felt like <code>master</code> was a little bit too oppressive for me, now I feel much safer coding! 10/5 would recommend it to anyone!</q></p>
+  <p>@<a href="https://github.com/jnancy">jnancy</a>: <q>🥵😤💦</q></p>
+  <p>@<a href="https://github.com/cesium-ice">cesium-ice</a>: <q>The author has excellent taste in anime.</q></p>
+  <p>@<a href="https://github.com/eishan05">eishan05</a>: <q>I am surprised this tool doesn’t need a credit card number and the three digits on the back to work, considering I discovered it on a kissanime ad banner</q></p>
+  <p>@<a href="https://github.com/Andrew-Ting">Andrew-Ting</a>: <q>すごい！このツールは面白くて、かっこいいですよ！やれやれだぜ。Grabe talaga yung tool na ito. Napakagaling, di mo na kailangan magsulat ng git commands sa terminal. Astig!</q></p>
+  <p>@<a href="https://github.com/izyb">izyb</a>: <q>this gave me cancer</q></p>
+  <p>@<a href="https://github.com/davidberard98">davidberard98</a>: <q>yikes</q></p>
+  <p>@<a href="https://github.com/Chenart">Chenart</a>: <q>I'd love to invest in your startup but I just don't see a clear monetization strategy.</q></p>
+  <p>@<a href="https://github.com/Bruno-DaSilva">Bruno-DaSilva</a>: <q>this tool increased our company’s revenue by 300%, but it’s Canadian so therefore not investible. Valuation: walrus. Feature suggestion: automatically rename ruby gems? Feature request: <code>heroku salad</code> will automatically do <code>git heroku salad</code></q></p>
+  <p>@<a href="https://github.com/ehnryx">ehnryx</a>: <q>scary. can this defeat science advising?</q></p>
+  <p>@<a href="https://github.com/blin4444">blin4444</a>: <q>oh no, what if it steals my API keys</q></p>
+  <p>@<a href="https://github.com/EbTech">EbTech</a>: <q>The source code ain't Rust, can't trust it. I hardly even trust my own code.</q></p>
+  <p>@<a href="https://github.com/silastsui">silastsui</a>: <q>this tool will turn u into a 10x developer</q></p>
+  <p>@<a href="https://github.com/ezaanm">ezaanm</a>: <q>pog</q></p>
+  <p>@<a href="https://github.com/d-e-lu">d-e-lu</a>-: <q>According to Eugene I can use this to make myself look cool. Thanks Eugene!!!</q></p>
+  <p>@<a href="https://github.com/luccasiau">luccasiau</a>: <q>Eugene told me this tool is great and I think he's right</q></p>
+  <p>@<a href="https://github.com/felixhe97">felixhe97</a>: <q>Writing testimonial because I just want to feel included.</q></p>
+  <p>@<a href="https://github.com/Visible1">Visible1</a>: <q>i dont social distance much</q></p>
+  <p>@<a href="https://github.com/wollip">wollip</a>: <q>seems cool, probably won’t use it. I like my repos the way they are. This is going to break my repos that have multiple remotes.</q></p>
+  <p>@<a href="https://github.com/thanh-to">thanh-to</a>: <q>I was probably the only person who actually used it? Works as intended. I’m deleting the token just in case.</q></p>
+  <p>...and if you'd like to add your own testimonial, just <a href="https://github.com/eyqs/rename-github-default-branches/issues">raise an issue here</a>!</p>
 </div>
 <footer role="contentinfo">
   <small>
