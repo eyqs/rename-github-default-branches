@@ -51,8 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log(progress);
     console.log(`sha: the ref of the ${old_branch} branch, or null if it does not exist.`);
     console.log(`post: the ref of the ${new_branch} branch, or null if it already exists.`);
-    console.log(`patch: the repo with the ${new_branch} default branch, `
-      + 'or null if the branch does not exist or is already the default branch');
+    console.log(`patch: the repo with ${new_branch} set as the new default branch`);
     console.log(`del: true if the ${old_branch} branch is successfully deleted, `
       + 'or null if it was not (e.g. it does not exist or you chose not to delete it).');
   });

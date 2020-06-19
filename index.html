@@ -12,7 +12,9 @@
   <a href="https://github.com/eyqs/rename-github-default-branches">
     <img id="github" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png">
   </a>
-  <p>Because you should be free to name your default branches whatever you want. Get a <a href="https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line">personal access token here</a>. View the short <a href="./rename.js">JavaScript source code here</a>.</p>
+  <p>This tool lets you rename your GitHub default branches to whatever you want.</p>
+  <p>Create a <a href="https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line">GitHub personal access token</a> with the <strong>repo</strong> scope, fill out the fields, but don't check the box unless you <strong>know</strong> those branches are safe to delete!</p>
+  <p>When you submit the form, this <a href="./rename.js">short JavaScript snippet</a> is run, entirely on your local machine, making no network requests to any servers besides through the GitHub API. If you don't trust sketchy webapps despite the countless perfectly legitimate testimonials, please copy the JavaScript code and run it yourself.</p>
   <form id="form">
     <label>
       <p>Name of old default branch:</p>
@@ -42,11 +44,11 @@
     </li>
     <li>
       <p class="question">Why should I use this tool?</p>
-      <p class="answer">Freedom of speech! Defy conventions! Confuse yourself and others!</p>
+      <p class="answer">Freedom of speech! Defy conventions! Express yourself in one word!</p>
     </li>
     <li>
-      <p class="question">Who would trust this sketchy-looking website?</p>
-      <p class="answer">You can read <a href="./rename.js">the source code</a> and run it yourself, if you're paranoid.</p>
+      <p class="question">Who, other than suspicious testimonials, would trust this site?</p>
+      <p class="answer">Nobody. So you should really read <a href="./rename.js">the source code</a> and run it yourself.</p>
     </li>
     <li>
       <p class="question">Will I encounter issues if branches with the same name already exist, or if there are many external hyperlinks to the <code>master</code> branch, or if many people use my repo as a submodule, or if I have many forks I don't want to touch, or if I have over 1239 repositories, or if I'm using multiple remotes, or if I'm using Netscape Navigator 3.02?</p>
@@ -58,7 +60,7 @@
     </li>
     <li>
       <p class="question">Whose repositories does this affect?</p>
-      <p class="answer">This script only affects repos under your username, unfortunately <strong>including all forks</strong>. It does not affect any repos owned by organizations, even if you are an owner of such a repo, because presumably you should probably consult your collaborators first.</p>
+      <p class="answer">This script only affects repos under your username, unfortunately <strong>including all forks</strong>. It does not affect any repos owned by organizations, even if you are an owner of such a repo, because presumably you should probably consult your collaborators first before breaking everything.</p>
     </li>
     <li>
       <p class="question">Which scopes should I select when creating my token?</p>
@@ -102,7 +104,7 @@ for d in ./*/; do (
     </li>
     <li>
       <p class="question">When will you write a script to rename GitLab default branches?</p>
-      <p class="answer">Tomorrow, if this gets over 10 upvotes on Reddit or <a href="https://news.ycombinator.com/item?id=23563950">Hacker News</a>. Otherwise never, because nobody would ever use it, not even myself.</p>
+      <p class="answer">Tomorrow, if this gets over 10 upvotes on <a href="https://news.ycombinator.com/item?id=23563950">Hacker News</a> or <a href="https://old.reddit.com/r/github/comments/hbit51/">Reddit</a>. Otherwise never, because nobody would ever use it, not even myself. [<strong>Update:</strong> I got four upvotes on both Hacker News and Reddit, so <strong>never</strong>. Reddit and the eight people who downvoted this must hate free speech!]</p>
     </li>
     <li>
       <p class="question">Was this script thoroughly checked for bugs?</p>
@@ -110,7 +112,7 @@ for d in ./*/; do (
     </li>
     <li>
       <p class="question">Whoever could have "accidentally" deleted all of my repos?</p>
-      <p class="answer">It wasn't me! You can read <a href="./rename.js">the source code</a> to double-check.</p>
+      <p class="answer">It wasn't me! Again, please read <a href="./rename.js">the source code</a> to double-check.</p>
     </li>
     <li>
       <p class="question">Were any of these "frequently" asked questions ever asked?</p>
@@ -118,7 +120,7 @@ for d in ./*/; do (
     </li>
   </ul>
   <h2 class="space">Testimonials</h2>
-  <p>@<a href="https://github.com/eyqs">eyqs</a>: <q>Incredible tool. If this didn't already exist, I would have written it myself!</q></p>
+  <p>@<a href="https://github.com/eyqs">eyqs</a>: <q>Amazing tool. If this didn't already exist, I would have written it myself!</q></p>
   <p>@<a href="https://github.com/oirectine">oirectine</a>: <q>i haven’t used it but i’m sure it probably works</q></p>
   <p>@<a href="https://github.com/danield128">danield128</a>: <q>Rename is so easy to use! We plan to replace git with rename as our exclusive version control system. Thanks @<a href="https://github.com/eyqs">eyqs</a>!</q></p>
   <p>@<a href="https://github.com/emsal1863">emsal1863</a>: <q>I was paid $0.10 to give my 2 cents here. This script sucks!!!</q></p>
@@ -128,13 +130,16 @@ for d in ./*/; do (
   <p>@<a href="https://github.com/jzaralim">jzaralim</a>: <q>none of the people in the testimonials even used the tool...</q></p>
   <p>@<a href="https://github.com/priyanshmalik">priyanshmalik</a>: <q>this sounds like a lot of effort when I only have one repository</q></p>
   <p>@<a href="https://github.com/ben324">ben324</a>: <q>YOOOOooOOOOoOoOo i don't even have any repositories!!!!</q></p>
-  <p>@<a href="https://github.com/thoushallbeagithubaccount">thoushallbeagithubaccount</a>: <q>I needed some dope and the creator of this tool gave me a few quarters to write a few words here. Cheers boys</q></p>
+  <p>@<a href="https://github.com/gwenli">gwenli</a>: <q>what is this</q></p>
+  <p>@<a href="https://github.com/rachitkumar">rachitkumar</a>: <q>This tool is useless</q></p>
+  <p>@<a href="https://github.com/lynnzhang7">lynnzhang7</a>: <q>I don't remember how to git and I also got locked out of my account last year but if I could use it im sure this would be life changing</q></p>
+  <p>@<a href="https://github.com/shadjamaldeen">nishadjamaldeen</a>: <q>I used to spend a lot of my time trying to rename my github branches. Now, its done at the click of a button!</q></p>
   <p>@<a href="https://github.com/zcliang97">zcliang97</a>: <q>It’s apps like these that make me think the future is here. <a href="https://twitter.com/search?q=%23GoodThingsHappenIn2020Too">#GoodThingsHappenIn2020Too</a></q></p>
   <p>@<a href="https://github.com/s-zheng">s-zheng</a>: <q>this cured my cancer</q></p>
   <p>@<a href="https://github.com/rebeccayelin">rebeccayelin</a>: <q>...</q></p>
   <p>@<a href="https://github.com/estherlin">estherlin</a>: <q>this is so much better than plain old <code>git branch -m master salad</code>.</q></p>
   <p>@<a href="https://github.com/gzgreg">gzgreg</a>: <q>pretty sure this got one of my coworkers fired yesterday when all the links to <code>tree/master</code> broke, nice job</q></p>
-  <p>@<a href="https://github.com/vhui">vhui</a>: <q>Cool, worked perfectly for what I needed: renaming my <code>master</code> branches to <code>master</code>.</q> <strong>Editor's note: don't do this.</strong> Well, nothing happens, but if you check "Delete old branches" then <strong>it'll delete your branches.</strong></p>
+  <p>@<a href="https://github.com/andersfylling">andersfylling</a>: <q>So I can rename it to <code>master</code> after GitHub takes this race play too far?</q></p>
   <p>@<a href="https://github.com/divyabudihal">divyabudihal</a> <q>this is so important in 2020! We must work to completely abolish terms like <code>master</code> from the tech world!</q></p>
   <p>@<a href="https://github.com/ShuHaoLi">ShuHaoLi</a>: <q>masterful.</q></p>
   <p>@<a href="https://github.com/mkduan">mkduan</a>: <q>I always felt like <code>master</code> was a little bit too oppressive for me, now I feel much safer coding! 10/5 would recommend it to anyone!</q></p>
