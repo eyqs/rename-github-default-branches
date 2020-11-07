@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const new_branch = e.target.new_branch.value;
     const delete_branches = e.target.del.checked;
     const headers = {authorization: `token ${e.target.token.value}`};
-    const progress = [];
+    let progress = [];
 
     console.log('Fetching all repositories that you own...');
     let repos = [null];
@@ -19,14 +19,20 @@ document.addEventListener("DOMContentLoaded", () => {
         {repo: repo.full_name, sha: null, post: null, patch: null, del: null})));
     }
 
+    // only operate on "sources", not forks
+    progress = progress.filter(p => !p.fork);
+
     console.log(`Checking that the ${old_branch} branch exists on each repository...`);
     await Promise.all(progress.map(p =>
       fetch(`https://api.github.com/repos/${p.repo}/git/ref/heads/${old_branch}`, {headers})
         .then(resp => (resp.ok ? resp.json() : null)).then(data => {p.sha = data})
     ));
 
+    // do not attempt to update new branch (or modify default branch) where old branch does not exist
+    progress = progress.filter(p => p.sha);
+
     console.log(`Creating the ${new_branch} branch on each repository...`);
-    await Promise.all(progress.filter(p => p.sha).map(p =>
+    await Promise.all(progress.map(p =>
       fetch(`https://api.github.com/repos/${p.repo}/git/refs`, {method: 'POST', headers,
           body: JSON.stringify({ref: `refs/heads/${new_branch}`, sha: p.sha.object.sha})})
         .then(resp => (resp.ok ? resp.json() : null)).then(data => {p.post = data})
@@ -48,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
       ));
     }
 
-    console.log(progress);
+    console.dir(progress);
     console.log(`sha: the ref of the ${old_branch} branch, or null if it does not exist.`);
     console.log(`post: the ref of the ${new_branch} branch, or null if it already exists.`);
     console.log(`patch: the repo with ${new_branch} set as the new default branch`);
